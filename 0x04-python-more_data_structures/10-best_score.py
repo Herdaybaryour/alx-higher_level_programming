@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-def get_max_key(d):
+def get_max_key(a_dictionary):
 
   max_key = None
 
   max_value = None
 
-  for key, value in d.items():
+  for key, value in a_dictionary.items():
 
     if isinstance(value, int):
 
