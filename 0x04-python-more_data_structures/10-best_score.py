@@ -16,4 +16,3 @@ def get_max_key(d):
         max_value = value
 
   return max_key
-
