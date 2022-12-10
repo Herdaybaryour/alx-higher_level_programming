@@ -1,15 +1,19 @@
-#!/bin/python3
+#!/usr/bin/python3
+def get_max_key(d):
 
-def best_score(a_dict):
+  max_key = None
 
-    if a_dict is None or a_dict == {}:
+  max_value = None
 
-        return None
+  for key, value in d.items():
 
-    biggest = max(a_dict.values())
+    if isinstance(value, int):
 
-    for key, value in a_dict.items():
+      if max_value is None or value > max_value:
 
-        if value is biggest:
+        max_key = key
 
-            return key
+        max_value = value
+
+  return max_key
+
