@@ -1,38 +1,62 @@
-#!/usr/bin/python3
-def to_subtract(list_num):
-    to_sub = 0
-    max_list = max(list_num)
-
-    for n in list_num:
-        if max_list > n:
-            to_sub += n
-
-    return (max_list - to_sub)
-
-
 def roman_to_int(roman_string):
-    if not roman_string:
-        return 0
 
-    if not isinstance(roman_string, str):
-        return 0
+  # define a dictionary with the values of each Roman numeral
 
-    rom_n = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-    list_keys = list(rom_n.keys())
+  numeral_values = {
 
-    num = 0
-    last_rom = 0
-    list_num = [0]
+    'I': 1,
 
-    for ch in roman_string:
-        for r_num in list_keys:
-            if r_num == ch:
-                if rom_n.get(ch) <= last_rom:
-                    num += to_subtract(list_num)
-                    list_num = [rom_n.get(ch)]
-                else:
-                    list_num.append(rom_n.get(ch))
+    'V': 5,
 
-                last_rom = rom_n.get(ch)
+    'X': 10,
 
-    num += to_subtract(list_num)
+    'L': 50,
+
+    'C': 100,
+
+    'D': 500,
+
+    'M': 1000
+
+  }
+
+
+
+  # initialize the result to 0
+
+  result = 0
+
+
+
+  # iterate over the Roman numeral string in reverse
+
+  for i in range(len(roman_string)-1, -1, -1):
+
+    # get the current numeral and its value
+
+    numeral = roman_string[i]
+
+    value = numeral_values[numeral]
+
+
+
+    # if the numeral is the first or the last in the string
+
+    # or if the numeral to the right has a lower value,
+
+    # add the value to the result
+
+    if i == 0 or i == len(roman_string)-1 or numeral_values[roman_string[i-1]] <= value:
+
+      result += value
+
+    # otherwise, subtract the value from the result
+
+    else:
+
+      result -= value
+
+
+
+  return result
+
