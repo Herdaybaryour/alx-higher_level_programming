@@ -1,11 +1,9 @@
 #!/usr/bin/python3
+def multiply_by_2(a_dictionary):
+    new_dir = a_dictionary.copy()
+    list_keys = list(new_dir.keys())
 
-def multiply_by_2(my_dict):
-    
-    tmp_dict = my_dict.copy()
-    
-    for x in tmp_dict.keys():
-     
-        tmp_dict[x] *= 2
-    
-    return (tmp_dict)
+    for i in list_keys:
+        new_dir[i] *= 2
+
+    return (new_dir)
